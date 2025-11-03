@@ -35,9 +35,11 @@ services:
     image: mysql:8.0
     container_name: mysql-db
     tty: true
-    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    user: "1000:1000"
+    # restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root 
       MYSQL_DATABASE: mydb
       MYSQL_USER: user
       MYSQL_PASSWORD: password
